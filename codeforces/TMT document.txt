@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int t1;
+	cin>>t1;
+	while(t1--)
+	{
+		int n;
+		string a;
+		 cin>>n;
+  cin>>a;
+  int t=0,m=0,flag=1,count=0;
+  for(int j=0;j<n;j++){
+ if(a[j]=='T')
+			{
+				t++;
+				count++;
+			}
+			else
+			if(a[j]=='M')
+			{
+				m++;
+				count--;
+			}
+			if(count<0||count>n/3)
+			flag=0;
+
+  }
+  if(t!=m*2||flag==0)
+  {
+      cout<<"NO\n";
+  }
+  else
+  {
+    cout<<"YES\n";
+}
+	
+	}
+	return 0;
+}
