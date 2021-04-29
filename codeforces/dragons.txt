@@ -1,0 +1,100 @@
+#include<bits/stdc++.h>
+#define f(i,a,b) for(i=a;i<b;i++)
+#define f_(i,a,b) for(i=a;i>=b;i--)
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL)
+#define pb push_back
+#define mod 1000000007
+#define mp make_pair
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define ff first
+#define ss second
+#define sp << " " <<
+#define nl << "\n";
+#define all(s) s.begin(),s.end()
+
+typedef long long ll ; typedef long double ld;
+using namespace std;
+ll merge(ll arr[], ll temp[], ll left, ll mid, ll right){
+    int inv_count = 0;
+
+    int i = left;
+    int j = mid;
+    int k = left;
+    while ((i <= mid - 1) && (j <= right))
+    {
+        if (arr[i] <= arr[j])
+            temp[k++] = arr[i++];
+        else
+        {
+            temp[k++] = arr[j++];
+
+            inv_count = inv_count + (mid - i);
+        }
+    }
+
+    while (i <= mid - 1)
+        temp[k++] = arr[i++];
+
+    while (j <= right)
+        temp[k++] = arr[j++];
+
+    for (i = left; i <= right; i++)
+        arr[i] = temp[i];
+
+    return inv_count;
+}
+
+ll _mergeSort(ll arr[], ll temp[], ll left, ll right)
+{
+    ll mid, inv_count = 0;
+    if (right > left)
+    {
+        mid = (right + left) / 2;
+
+        inv_count  = _mergeSort(arr, temp, left, mid);
+        inv_count += _mergeSort(arr, temp, mid + 1, right);
+
+        inv_count += merge(arr, temp, left, mid + 1, right);
+    }
+
+    return inv_count;
+}
+
+ll vasu(ll arr[], ll n)
+{
+    ll temp[n];
+    return _mergeSort(arr, temp, 0, n - 1);
+}
+
+int main() {
+	
+int s,n;
+cin>>s>>n;
+int c=0;
+multimap<int, int> m;
+for(int i=0;i<n;i++)
+{
+	int x,y;
+	cin>>x>>y;
+ m.insert(pair<int,int>(x,y));
+}
+multimap<int,int> ::iterator itr;
+for (itr = m.begin(); itr != m.end(); itr++) { 
+        if(s>itr->first)
+        {
+        	s=s+itr->second;
+        	c++;
+		}
+    } 
+if(c==n)
+{
+	cout<<"YES";
+}
+else{
+	cout<<"NO";
+}
+
+    return 0;
+}
