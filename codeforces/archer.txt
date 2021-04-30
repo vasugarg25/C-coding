@@ -1,0 +1,202 @@
+question-  https://codeforces.com/contest/312/problem/B
+
+
+#include<bits/stdc++.h>
+#define f(i,a,b) for(i=a;i<b;i++)
+#define f_(i,a,b) for(i=a;i>=b;i--)
+#define fr(i, a, b) for(i=a;i>=b;i--)
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define mp make_pair
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define ff first
+#define ss second
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define sp << " " <<
+#define nl << "\n"
+#define all(s) s.begin(),s.end()
+#define minv(a) *min_element(all(a))
+#define setpre(a) cout << setprecision(a) << fixed
+ 
+typedef long long ll ; typedef long double ld;
+using namespace std;
+// C++ implementation of the approach
+#include <bits/stdc++.h>
+using namespace std;
+ 
+const int sz = 1e5;
+bool isPrime[sz + 1];
+ 
+// Function for Sieve of Eratosthenes
+bool iszero(int x)
+{
+	while(x!=0)
+	{
+		int l=x%10;
+		if(l==0)
+		{
+			return false;
+		}
+		x=x/10;
+	}
+	return true;
+}
+void sieve()
+{
+	memset(isPrime, true, sizeof(isPrime));
+ 
+	isPrime[0] = isPrime[1] = false;
+ 
+	for (int i = 2; i * i <= sz; i++) {
+		if (isPrime[i]) {
+			for (int j = i * i; j < sz; j += i) {
+				isPrime[j] = false;
+			}
+		}
+	}
+}
+ 
+// Function to print all the prime
+// numbers with d digits
+void findPrimesD(int d)
+{
+ 
+	// Range to check integers
+	int left = pow(10, d - 1);
+	int right = pow(10, d) - 1;
+ 
+	// For every integer in the range
+	for (int i = left; i <= right; i++) {
+ 
+		// If the current integer is prime
+		if (isPrime[i]) {
+			if(iszero(i))
+			{
+			
+			cout<<i<<endl;
+			break;
+		}
+		}
+}
+}
+bool isPowerOfTwo(int n)
+{
+   if(n==0)
+   return false;
+ 
+   return (ceil(log2(n)) == floor(log2(n)));
+}
+ bool isPerfectSquare(long double x)
+{
+  
+    if (x >= 0) {
+ 
+        long long sr = sqrt(x);
+         
+      
+        return (sr * sr == x);
+    }
+    
+    return false;
+} 
+
+
+  ll distance(int x1,int y1,int x2,int y2){
+        ll ans=pow((x2-x1),2) + pow((y2-y1),2);
+        return ans;
+    }
+
+ int check(int x1,int y1,int x2,int y2,int x3,int y3){
+      if((x1==x2 && y1==y2) ||(x1==x3 && y1==y3) || (x2==x3 && y2==y3))return 0;
+      ll ans1=distance(x1,y1,x2,y2);
+      ll ans2=distance(x1,y1,x3,y3);
+      ll ans3=distance(x2,y2,x3,y3);
+      if(ans1+ans2==ans3)return 1;
+      if(ans1+ans3==ans2)return 1;
+      if(ans2+ans3==ans1)return 1;
+      return 0;
+}
+void printDivisors(int n)
+{
+	int c=0;
+//	int f=0;
+    // Note that this loop runs till square root
+    for (int i=1; i<=sqrt(n); i++)
+    {
+        if (n%i == 0)
+        {
+            // If divisors are equal, print only one
+            if (n/i == i)
+                {
+                	c++;
+				}
+ 
+            else // Otherwise print both
+               {
+               	c=c+2;
+			   }
+			   
+        }
+     
+    }
+    if(c==3)
+    {
+    	cout<<"YES\n";
+	}
+	else{
+		cout<<"NO\n";
+	}
+
+}
+bool isprime(ll n)
+{
+    if(n==1)
+    return false;
+    for(ll i=2;i*i<=n;i++)
+    {
+        if(n%i==0)
+        return false;
+    }
+    return true;
+}
+ 
+void fun(ll a)
+{
+	ll n=a;
+	ll cnt=0;
+	ll i;
+	
+	ll f=sqrt(a);
+	if(f*f==a)
+	{
+		if(isprime(f))
+		{
+			cout<<"YES"<<endl;
+			return;
+		}
+	}
+	cout<<"NO"<<endl;
+}
+  
+
+int main() {
+	setpre(6);
+    NeedForSpeed;
+ // T_ {
+
+double a,b,c,d;
+cin>>a>>b>>c>>d;
+double x=(a/b)/(1-((1-(a/b))*(1-(c/d))));
+cout<<x;
+
+  
+  
+
+  
+        
+  //  }
+    return 0;
+}
