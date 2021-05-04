@@ -1,0 +1,74 @@
+question-  https://codeforces.com/contest/1207/problem/A
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+
+bool isPowerOfTwo(int n)
+{
+   if(n==0)
+   return false;
+ 
+   return (ceil(log2(n)) == floor(log2(n)));
+}
+
+int main()
+{
+  T_{
+ll b,p,f;
+cin>>b>>p>>f;
+ll h,c;
+cin>>h>>c;
+int profit=0;
+int d;
+ if(h>=c) {
+            if(b/2 >= p) {
+                profit += p*h;
+                d = (b/2)-p;
+                if(d>=f) {
+                    profit+=f*c;
+                }
+                else {
+                    profit+=d*c;
+                }
+            }
+            else {
+                profit+=(b/2)*h;
+            }
+        }
+        else {
+            if(b/2 >= f) {
+                profit += f*c;
+                d = (b/2)-f;
+                if(d>=p) {
+                    profit+=p*h;
+                }
+                else {
+                    profit+=d*h;
+                }
+            }
+            else {
+                profit+=(b/2)*c;
+            }
+        }
+
+    
+
+cout<<profit;
+  cout << "\n";
+
+}
+	return 0;
+}
