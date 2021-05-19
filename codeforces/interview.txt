@@ -1,0 +1,35 @@
+question - https://codeforces.com/problemset/problem/631/A
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+ll func(ll n) {
+    ll ans = 0;
+    for (ll i = 0; i < n; i++) {
+        ll x;
+        cin >> x;
+        ans |= x;
+    }
+    return ans;
+}
+int main() {
+    NeedForSpeed;
+//    T_ {
+ll n;
+    cin >> n;
+    cout << func(n) + func(n);
+//    }
+    return 0;
+}
