@@ -1,0 +1,87 @@
+question- https://codeforces.com/problemset/problem/1220/A
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+ll highestPowerof2(ll n)
+{
+   ll p = (ll)log2(n);
+   return (ll)pow(2, p);
+}
+bool isPowerOfTwo(ll n)
+{
+   if(n==0)
+   return false;
+ 
+   return (ceil(log2(n)) == floor(log2(n)));
+}
+int main() {
+    NeedForSpeed;
+ //  T_ {
+ll p;
+cin>>p;
+string s;
+cin>>s;
+int n=0,o=0,e=0,z=0,r=0;
+for(int i=0;i<p;i++)
+{
+	if(s[i]=='o')
+	{
+		o++;
+	}
+	if(s[i]=='n')
+	{
+		n++;
+	}
+	if(s[i]=='e')
+	{
+	
+		e++;
+	}
+	if(s[i]=='z')
+	{
+		z++;
+	}
+	if(s[i]=='r')
+	{
+		r++;
+	}
+	
+}
+	int h=0,j=0;
+if(o>0&&n>0&&e>0)
+{
+h=min(o,min(n,e));
+	o=o-h;
+	n=n-h;
+	e=e-h;
+}
+if(z>0&&e>0&&r>0&&o>0)
+{
+	j=min(z,min(e,min(r,o)));
+	
+}
+for(int i=0;i<h;i++)
+{
+	cout<<1<<" ";
+}
+for(int i=0;i<j;i++)
+{
+	cout<<0<<" ";
+}
+
+  // }
+    return 0;
+}
