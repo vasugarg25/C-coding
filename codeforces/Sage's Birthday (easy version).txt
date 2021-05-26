@@ -1,0 +1,65 @@
+question- https://codeforces.com/contest/1419/problem/D1
+
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+
+int main() {
+	NeedForSpeed;
+ // T_ {
+ll n;
+cin>>n;
+ll a[n+1];
+for(ll i=0;i<n;i++)
+{
+	cin>>a[i];
+	
+}
+ll c=0;
+if(n<3)
+{
+	cout<<0<<endl;
+	for(ll i=0;i<n;i++)
+	{
+		cout<<a[i]<<" ";
+		
+	}
+}
+else{
+	
+sort(a,a+n);
+for(ll i=0;i<n-1;i=i+2)
+{
+	
+	ll x=a[i];
+	a[i]=a[i+1];
+	a[i+1]=x;
+}
+if(n%2 == 0) {
+            cout << (n/2)-1 << "\n";
+        }
+        else {
+            cout << n/2 << "\n";
+        }
+for(ll i=0;i<n;i++)
+{
+	cout<<a[i]<<" ";
+}
+//}
+}
+
+    return 0;
+}
