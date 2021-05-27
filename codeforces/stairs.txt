@@ -1,0 +1,53 @@
+question- https://codeforces.com/contest/1419/problem/B
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+bool check_order(ll arr[],ll n)
+{
+    int cnt = 0;
+    for (int i = 0; i < n - 1; i++) {
+        if (abs(arr[i + 1] - arr[i]) > 1)
+            cnt++;
+    }
+   
+    if (abs(arr[0] - arr[n - 1]) > 1)
+        cnt++;
+ 
+
+    if (cnt > 1)
+        return false;
+    return true;
+}
+int main() {
+	NeedForSpeed;
+  T_ {
+ ll n; 
+ cin>>n;
+        int cnt=0;
+        ll x=1,req=1;
+        while(req<=n){
+            n-=req;
+            x = 2*x +1;
+            req = x*(x+1)/2;
+            cnt++;
+        }
+        cout << cnt << "\n";	
+
+}
+
+
+    return 0;
+}
