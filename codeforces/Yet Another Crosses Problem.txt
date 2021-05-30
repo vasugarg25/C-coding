@@ -1,0 +1,63 @@
+ques-https://codeforces.com/contest/1194/problem/B
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+  string a[1000007];
+  ll rownum[1000007];
+ll colnum[1000007];
+  
+int main() {
+	NeedForSpeed;
+ T_{
+  ll n,m;
+  cin>>n>>m;
+  
+  for(int i=0;i<n;i++)
+  {
+  	cin>>a[i];
+  }
+
+
+  for (ll i = 0; i < n; i++){
+   rownum[i] = 0;}
+  for (ll i = 0; i < m; i++) {
+  colnum[i] = 0;}
+  
+        for(ll i = 0; i < n; i++){
+            for(ll j = 0; j < m; j++){
+                if(a[i][j] == '.'){
+                    rownum[i]++;
+                    colnum[j]++;
+                }
+            }
+        }
+        ll ans =INT_MAX;
+          for(ll i = 0; i <  n; i++){
+            for(ll j = 0; j < m; j++){
+                ll sum = rownum[i] + colnum[j];
+                if (a[i][j] == '.')
+				{
+				  sum--;
+			}
+                ans = min(ans, sum);
+            }
+        }
+  cout<<ans<<endl;
+}
+	   
+
+    return 0;
+}
