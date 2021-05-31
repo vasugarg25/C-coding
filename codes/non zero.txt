@@ -1,0 +1,93 @@
+ques- https://codeforces.com/contest/1300/problem/A
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+int main() {
+	NeedForSpeed;
+ T_{
+ll n;
+cin>>n;
+ll a[n+1];
+ll sum=0,prod=1;
+int zero=0;
+ll sump=0,sumn=0;
+int c=0;
+for(int i=0;i<n;i++)
+{
+	cin>>a[i];
+	sum=sum+a[i];
+	prod=prod*a[i];
+	if(a[i]==0)
+	{
+		zero++;
+	}
+	if(a[i]>0)
+	{
+		sump+=a[i];
+	}
+	if(a[i]<0)
+	{
+		sumn+=a[i];
+	}
+	
+}
+if(prod!=0&&sum!=0)
+{
+	cout<<0<<endl;
+}
+else{
+	if(prod!=0&&sum==0)
+	{
+	  cout<<1<<endl;
+	}
+	else if(sum!=0&&prod==0)
+	{
+		c=c+zero;
+		sum=sum+zero;
+	  while(true)
+	  {
+	  	if(sum!=0)
+	  	{
+	  		break;
+		  }
+	  	c++;
+	  	sum=sum+1;
+	  	
+	  }
+	  cout<<c<<endl;
+	}
+	else{
+		c=c+zero;
+		sum=sum+zero;
+		 while(true)
+	  {
+	  	if(sum!=0)
+	  	{
+	  		break;
+		  }
+	  	c++;
+	  	sum=sum+1;
+	  	
+	  }
+	  cout<<c<<endl;
+	}
+	
+}
+}
+	   
+
+    return 0;
+}
