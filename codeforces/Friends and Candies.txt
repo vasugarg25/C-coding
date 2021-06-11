@@ -1,0 +1,48 @@
+ques- https://codeforces.com/contest/1538/problem/B
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+int main() {
+	NeedForSpeed;
+ T_{
+int n;
+cin>>n;
+int a[n+1];
+int sum=0;
+for(int i=0;i<n;i++)
+{
+	cin>>a[i];
+	sum+=a[i];
+}
+int c=0;
+if((sum%n)!=0)
+{
+	cout<<-1<<endl;
+}
+else{
+	int f=sum/n;
+	for(int i=0;i<n;i++)
+	{
+		if(a[i]>f)
+		{
+			c++;
+		}
+	}
+	cout<<c<<endl;
+}
+}
+    return 0;
+}
