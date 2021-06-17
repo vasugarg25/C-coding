@@ -1,0 +1,57 @@
+qeus- https://codeforces.com/problemset/problem/6/A
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+int tri=0,seg=0;
+string checkValidity(int a, int b, int c)
+{
+    if (a + b > c && a + c > b && b + c > a)
+    {
+	     tri=1;
+        return "TRIANGLE";
+    }
+    else if(a + b == c || a + c == b || b + c == a){
+	    seg=1;
+    
+        return "SEGMENT";
+    }
+    else{
+         return "IMPOSSIBLE";    	
+		}
+}
+int main() {
+	NeedForSpeed;
+ //T_{
+ int a,b,c,d;
+ cin>>a>>b>>c>>d;
+ string s=checkValidity(a,b,c);
+ string d1=checkValidity(a,c,d);
+ string k=checkValidity(b,c,d);
+ string h=checkValidity(a,b,d);
+if(tri==1)
+{
+	cout<<"TRIANGLE";
+}
+else if(seg==1)
+{
+	cout<<"SEGMENT";
+}
+else{
+	cout<<"IMPOSSIBLE";
+}
+//}
+    return 0;
+}
