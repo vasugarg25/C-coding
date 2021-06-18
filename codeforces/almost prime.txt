@@ -1,0 +1,82 @@
+ques- https://codeforces.com/contest/26/problem/A
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+bool prime[3001];
+int ans=0;
+void printDivisors(int n)
+{
+    // Note that this loop runs till square root
+    set<int> s;
+    for (int i=2; i<n; i++)
+    {
+        if (n%i == 0)
+        {
+            s.insert(i);
+        }
+    }
+     set<int>::iterator itr;
+     int c=0;
+     for(itr=s.begin();itr!=s.end();itr++)
+     {
+     	if(prime[*itr]==true)
+     	{
+     		c++;
+		 }
+	 }
+	 if(c==2)
+	 {
+	 	ans++;
+	 }
+}
+void SieveOfEratosthenes()
+{
+    
+    memset(prime, true, sizeof(prime));
+ 
+    for (int p = 2; p * p <= 3001; p++)
+    {
+        if (prime[p] == true)
+        {
+            
+            for (int i = p * p; i <= 3001; i += p)
+                prime[i] = false;
+        }
+    }
+}
+int main() {
+	NeedForSpeed;
+ // T_ {
+ ll n;
+ cin>>n;
+ SieveOfEratosthenes();
+ for(int k=2;k<=n;k++)
+ {
+ 	
+ 	printDivisors(k);
+ //	cout<<ans<<endl;
+ 
+ 	
+ }
+ 
+ cout<<ans;
+ 
+ 
+ 
+//}
+
+    return 0;
+}
