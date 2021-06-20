@@ -1,0 +1,45 @@
+ques-https://codeforces.com/contest/1539/problem/B
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+//char d[26]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+int main() {
+	NeedForSpeed;
+ // T_ {
+ll n,q;
+cin>>n>>q;
+string s;
+cin>>s;
+vector<int> v;
+int dp[n+1];dp[0]=0;
+	for(int i=0;i<n;i++){
+	    dp[i+1]=dp[i]+(s[i]-'a'+1);
+	}
+	while(q--){
+	    int l,r;
+		cin>>l>>r;
+		int h=dp[r]-dp[l-1];
+		v.pb(h);
+	}
+for(int i=0;i<v.size();i++)
+{
+	cout<<v[i]<<endl;
+}
+ 
+//}
+
+    return 0;
+}
