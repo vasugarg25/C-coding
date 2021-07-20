@@ -1,0 +1,66 @@
+ques- https://codeforces.com/problemset/problem/146/A
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+char alphabet[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+int main() {
+	NeedForSpeed;
+ //T_ {
+ll n;
+cin>>n;
+string s;
+cin>>s;
+int f=0,se=0;
+for(int i=0;i<n;i++)
+{
+	if(s[i]=='4')
+	{
+		f++;
+	}
+	if(s[i]=='7')
+	{
+		se++;
+	}
+}
+if((f+se)!=n)
+{
+	cout<<"NO";
+}
+else{
+
+int sum1=0,sum2=0;
+for(int i=n-1;i>=n/2;i--)
+{
+	int h=s[i]-'0';
+	sum1=sum1+h;
+}
+for(int i=n/2-1;i>=0;i--)
+{
+	int h=s[i]-'0';
+	sum2=sum2+h;
+}
+if(sum1==sum2)
+{
+	
+	cout<<"YES";
+}
+else{
+	cout<<"NO";
+}
+}
+//}
+    return 0;
+}
