@@ -1,0 +1,46 @@
+ques= https://codeforces.com/contest/452/problem/A
+
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+char alphabet[26] = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+int main() {
+	NeedForSpeed;
+ //T_ {
+vector<string> v= {"vaporeon", "jolteon", "flareon", "espeon", "umbreon", "leafeon", "glaceon", "sylveon"};
+int n;cin>>n;
+string s;cin>>s;
+ 
+ 
+ 
+	for(int j=0;j<v.size();j++){
+		int flag=0;
+		if(v[j].size()!=s.size()) continue;
+		for(int k=0;k<v[j].size();k++){
+			if(s[k]=='.') continue;
+			else if(s[k]!=v[j][k]){
+				flag=1;
+				break;
+			}
+		}
+		if(flag==0) {
+			cout<<v[j]<<endl;
+			return 0;
+		}
+	}
+
+//}
+    return 0;
+}
