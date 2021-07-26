@@ -1,0 +1,20 @@
+ques= https://leetcode.com/problems/smallest-range-i/
+
+
+class Solution {
+public:
+    int smallestRangeI(vector<int>& nums, int k) {
+        int mx=*max_element(nums.begin(),nums.end());
+        int mn=*min_element(nums.begin(),nums.end());
+        mn=mn+k;
+        mx=mx-k;
+        if(mx<mn)
+        {
+            return 0;
+        }
+        else{
+            return mx-mn;
+        }
+        
+    }
+};
