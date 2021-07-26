@@ -1,0 +1,20 @@
+ques= https://leetcode.com/problems/shuffle-string/
+
+
+class Solution {
+public:
+    string restoreString(string s, vector<int>& indices) {
+       map<int,char> m;
+        for(int i=0;i<s.size();i++)
+        {
+            m.insert(pair<int,char>(indices[i],s[i]));
+        }
+        string f="";
+        for(auto it: m)
+        {
+            
+            f.push_back(it.second);
+        }
+        return f;
+    }
+};
