@@ -1,0 +1,37 @@
+ques= https://leetcode.com/problems/palindrome-linked-list/submissions/
+
+
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+       
+        stack<int> s;
+        ListNode* h=head;
+        while(h!=NULL)
+        {
+            s.push(h->val);
+            h=h->next;
+        }
+        while(head!=NULL)
+        {
+            if(head->val==s.top())
+            {
+                s.pop();
+                head=head->next;
+            }
+            else{
+             return false;
+            }
+        }
+        return true;
+        
+    }
+};
