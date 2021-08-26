@@ -1,0 +1,69 @@
+ques= https://codeforces.com/contest/1560/problem/C
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+typedef pair<int, int> pairs;
+
+int main()
+{
+	
+int t;
+cin>>t;
+while(t--)
+{
+	ll k;
+	cin>>k;
+	ll p=sqrtl(k);
+	if(k==1)
+	{
+		cout<<1<<" "<<1<<endl;
+		
+	}
+	else{
+	
+	if(p*p==k)
+	{
+		cout<<p<<" "<<1<<endl;
+	}
+	else{
+	
+	p++;
+	ll d=p*p;
+	ll q=p-1;
+	ll mn=d-q;
+	ll up=mn-q;
+	ll r=p,c=p;
+	if(k>=mn)
+	{
+		c=d-k+1;
+	}
+	else{
+		
+		r=p-(mn-k);
+	}
+	cout<<r<<" "<<c<<endl;
+}
+	
+}
+}
+
+	
+
+
+	
+ 
+
+    return 0;
+}
