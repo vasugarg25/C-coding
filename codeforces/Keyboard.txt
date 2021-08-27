@@ -1,0 +1,68 @@
+ques= https://codeforces.com/problemset/problem/474/A
+
+#include<bits/stdc++.h>
+using namespace std;
+#define T_ ll t; cin>>t; while(t--)
+#define NeedForSpeed ios_base::sync_with_stdio(false); cin.tie(NULL);cout.tie(0)
+#define pb push_back
+#define mod 1000000007
+#define read(a,n) for(i=0;i<n;i++) cin>>a[i]
+#define pr(a,n)  for(i=0;i<n;i++) cout<<a[i] << " "; cout<<"\n"
+#define iof freopen("input.txt", "r", stdin);freopen("output.txt", "w", stdout);
+#define setpre(a) cout << setprecision(a) << fixed
+#define pi              3.141592653589793238
+#define lcm(a,b)        (a/(__gcd(a,b)))*b
+
+typedef long long ll ; typedef long double ld;
+typedef pair<int, int> pairs;
+string l="qwertyuiopasdfghjkl;zxcvbnm,./";
+
+int main()
+{
+	
+char x;
+cin>>x;
+string s;
+cin>>s;
+string k;
+if(x=='R')
+{
+	for(int i=0;i<s.size();i++)
+	{
+		for(int j=0;j<l.size();j++)
+		{
+			if(s[i]==l[j])
+			{
+				k.push_back(l[j-1]);
+				break;
+			}
+		}
+		
+	}
+	
+}
+else{
+	
+	for(int i=0;i<s.size();i++)
+	{
+		for(int j=0;j<l.size();j++)
+		{
+			if(s[i]==l[j])
+			{
+				k.push_back(l[j+1]);
+				break;
+			}
+		}
+		
+	}
+	
+	
+}
+cout<<k;
+
+
+	
+ 
+
+    return 0;
+}
