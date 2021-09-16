@@ -1,0 +1,56 @@
+ques= https://leetcode.com/problems/check-if-word-equals-summation-of-two-words/
+
+
+class Solution {
+public:
+    bool isSumEqual(string fi, string sec, string tar) {
+        map<char,int> m;
+        string x="abcdefghijklmnopqrstuvwxyz";
+        int j=0;
+        for(int i=0;i<x.size();i++)
+        {
+             m.insert(pair<char, int>(x[i],j));
+            j++;
+        }
+        string sum1="",sum2="",sum3="";
+        for(int i=0;i<fi.size();i++)
+        {
+            ostringstream str1;
+    str1 <<m[fi[i]];
+    string geek = str1.str();
+            sum1=sum1+geek;
+        }
+          for(int i=0;i<sec.size();i++)
+        {
+              ostringstream str1;
+    str1 <<m[sec[i]];
+    string geek = str1.str();
+            sum2=sum2+geek;
+        }
+          for(int i=0;i<tar.size();i++)
+        {
+                ostringstream str1;
+    str1 <<m[tar[i]];
+    string geek = str1.str();
+            sum3=sum3+geek;
+        }
+        
+         
+        int q=0;
+        int y=0;
+        int z=0;
+        
+    stringstream geek(sum1);
+          stringstream vasu(sum2);
+          stringstream garg(sum3);
+    geek >> q;
+        vasu>>y;
+        garg>>z;
+
+        
+        if((q+y)==z)
+            return true;
+        else
+            return false;
+    }
+};
