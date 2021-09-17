@@ -1,0 +1,16 @@
+ques= https://leetcode.com/problems/mean-of-array-after-removing-some-elements/
+
+
+class Solution {
+public:
+    double trimMean(vector<int>& arr) {
+        int x=arr.size();
+        sort(arr.begin(),arr.end());
+        int y=(ceil(x / 20)); 
+        int ans=0;
+         arr.erase(arr.begin(), arr.begin() + y);
+        arr.erase(arr.end() - y, arr.end());
+        return accumulate(arr.begin(), arr.end(), 0.00) / arr.size();
+        
+        }
+};
